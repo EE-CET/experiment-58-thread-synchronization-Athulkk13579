@@ -1,12 +1,8 @@
 class Table {
+
     synchronized void printTable(int n) {
         for (int i = 1; i <= 5; i++) {
-            System.out.print((n * i) + " ");
-            try {
-                Thread.sleep(100); // Adding a slight delay to simulate processing
-            } catch (InterruptedException e) {
-                System.out.println(e);
-            }
+            System.out.print(n * i + " ");
         }
         System.out.println();
     }
@@ -36,9 +32,10 @@ class Thread2 extends Thread {
     }
 }
 
-public class SyncDemo {
-    public static void main(String args[]) {
-        Table obj = new Table(); 
+public class SynchronizationDemo {
+    public static void main(String[] args) {
+
+        Table obj = new Table();
 
         Thread1 t1 = new Thread1(obj);
         Thread2 t2 = new Thread2(obj);
